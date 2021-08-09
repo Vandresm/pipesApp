@@ -1,0 +1,83 @@
+<div class="text-layout">
+    <h1>Pipes Básicos</h1>
+    <p>
+        pipes incluidos en Angular - usualmente en el CommomModule
+    </p>
+</div>
+
+
+
+
+    <div class="grid">
+        <div class="col-4">
+            <p-card header="uppercase"
+                    [subheader]="nombreLower | uppercase">
+                    {{nombreLower | uppercase}}
+            </p-card>
+        </div>
+
+        <div class="col-4">
+            <p-card header="lowercase"
+                    [subheader]="nombreLower | lowercase">
+                    {{nombreLower | lowercase}}
+            </p-card>
+        </div>
+
+        <div class="col-4">
+            <p-card header="titleCase"
+                    [subheader]="nombre | titlecase">
+                    {{nombre | titlecase}}
+            </p-card>
+        </div>
+        
+    </div>
+
+
+
+
+<div class="text-layout">
+    <h1>Date | Fecha | Pipe</h1>
+    <p>
+        pipes para mostrar fechas
+    </p>
+</div>
+
+<div class="grid">
+    <div class="col-6 p-2">
+        <p-card>
+            <ul>
+                <li>fecha </li>
+                <li>fecha | date</li>
+                <li>fecha | date: Short</li>
+                <li>fecha | date: Long</li>
+                <li>fecha | date: custom</li>
+            </ul>
+
+            <hr>
+
+            <ul>
+                <li>fecha | date:'long':'GMT-4' </li>
+                <li>fecha | date:'long':'GMT-6' </li>
+                <li>fecha | date:'long':'GMT-7' Frances </li>
+            </ul>
+        </p-card>
+    </div>
+    <div class="col-6 p-2">
+        <p-card>
+            <ul>
+                <li>{{fecha}}</li>
+                <li>{{fecha | date}}</li>
+                <li>{{fecha | date:'short'}}</li>
+                <li>{{fecha | date:'long'}}</li>
+                <li>{{fecha | date:'dd MMMM yyyy   h:mm a z'}}</li>
+            </ul>
+            <hr>
+
+            <ul>
+                <li>{{fecha | date:'long':'GMT-4' }}</li>
+                <li>{{fecha | date:'long':'GMT-6' }}</li>
+                <li>{{fecha | date:'long':'GMT-7':'fr' }}</li>
+            </ul>
+        </p-card>
+    </div>
+</div>
