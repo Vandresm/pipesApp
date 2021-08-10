@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,12 @@ export class AppComponent {
   nombre: string = 'VIcToR';
   num: number = 1235;
   obj=  {nombre:'VIcToR'};
+
+  constructor(private primengConfig: PrimeNGConfig) {}
+
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+  }
 
   cambiarNombre(){
     console.log(this.nombre);

@@ -1,1 +1,83 @@
-<p>no-comunes works!</p>
+<div class="text-layout">
+    <h1>Pipes No Comunes</h1>
+    <p>
+        pipes incluidos en Angular - usualmente en el CommomModule
+    </p>
+</div>
+
+<div class="grid">
+
+    <div class="col-6 md:col-6 sm:col-9">
+        <p-fieldset legend="i18nSelect Pipe" [toggleable]="true" [transitionOptions]="'350ms'">
+            <p>
+                saludos {{nombre}}, es un placer 
+                {{ genero | i18nSelect:invitacionMapa }}
+                a nuestro evento
+            </p>
+            <button pButton pRipple 
+                    (click)="cambiarCliente()"
+                    type="button" 
+                    icon="pi pi-check"
+                    iconPos="right"
+                    label="Cambiar Persona">
+            </button>
+
+        </p-fieldset>
+    </div>
+
+    <div class="col-6 md:col-6 sm:col-9">
+        <p-fieldset legend="i18nPlural Pipe" [toggleable]="true" [transitionOptions]="'350ms'">
+           <p>
+                 actualmente tenemos {{clientes.length | i18nPlural:clientesMapa}} clientes esperando
+           </p>
+           <button *ngIf="clientes.length >0 "
+                    pButton pRipple 
+                    type="button" 
+                    (click)="eliminarCliente()"
+                    label="Eliminar" 
+                    icon="pi pi-times"
+                    iconPos="right"
+                    class="p-button-danger">
+            </button>
+        </p-fieldset>
+    </div>
+
+    <div class="col-6 md:col-6 sm:col-9">
+        <p-fieldset legend="slice Pipe" [toggleable]="true" [transitionOptions]="'350ms'">
+           <b>Original</b>
+           <pre>{{clientes}}</pre>
+
+           <b>slice:0:2</b>
+           <pre> {{clientes | slice:0}} </pre>
+           
+        </p-fieldset>
+    </div>
+
+    <div class="col-6 md:col-6 sm:col-9">
+        <p-fieldset legend="Json Pipe" [toggleable]="true" [transitionOptions]="'350ms'">
+           <pre>{{heroes | json}}</pre>
+           
+        </p-fieldset>
+    </div>
+
+    <div class="col-6 md:col-6 sm:col-9">
+        <p-fieldset legend="KeyValue Pipe" [toggleable]="true" [transitionOptions]="'350ms'">
+           <ul>
+               <li *ngFor="let item of persona | keyvalue">
+                   {{item.key | titlecase}} :<b> {{item.value}} </b>
+               </li>
+           </ul>
+           
+        </p-fieldset>
+    </div>
+
+    <div class="col-6 md:col-6 sm:col-9">
+        <p-fieldset legend="Async Pipe" [toggleable]="true" [transitionOptions]="'350ms'">
+           <!-- <pre>{{miObsvb | async}}</pre> -->
+           <pre *ngIf="!(promesa | async)">Cargando promesa</pre>
+           <pre>{{promesa | async}}</pre>
+           
+        </p-fieldset>
+    </div>
+
+</div>
